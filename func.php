@@ -1,6 +1,6 @@
 <?php
 require "conn.php";
-function buscar_tarefas($conexao){
+function listar_tarefas($conexao){
 	$sqlBusca = 'SELECT * FROM tarefas';
 	$resultado = mysqli_query($conexao, $sqlBusca);
  	
@@ -32,5 +32,26 @@ function excluir_tarefa($conexao, $id){
 					WHERE id = '$id'";
 
 	mysqli_query($conexao, $sqlExcluir) 
+		or die(mysqli_error($conexao));
+}
+
+function buscar_tarefa($conexao, $id){
+	$sqlBusca = "SELECT * FROM tarefas WHERE id = '$id'";
+	$resultado = mysqli_query($conexao, $sqlBusca);
+ 	
+ 	$tarefa = mysqli_fetch_assoc($resultado);
+ 	
+ 	return $tarefa;
+}
+
+function atualizar_tarefa($conexao, $t){
+	$sqlAtualizar = "UPDATE tarefas SET
+						nome = '$t[nome]',
+						descricao = '$t[descricao]',
+						prazo = '$t[prazo]',
+						prioridade = '$t[prioridade]',
+						concluida = '$t[concluida]'
+					WHERE id = '$t[id]'";
+	mysqli_query($conexao, $sqlAtualizar) 
 		or die(mysqli_error($conexao));
 }

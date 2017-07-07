@@ -2,7 +2,7 @@
 if(isset($_POST['nome'])){
 	require "func.php";
 	gravar_tarefa($conexao, $_POST);
-	header("Location: index.php");
+	header("Location: index.php"); //redireciona para index.php
 } ?>
 <!DOCTYPE html>
 <html>

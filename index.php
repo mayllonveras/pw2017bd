@@ -1,5 +1,4 @@
 <?php 
-require "conn.php";
 require "func.php";
 ?>
 <!DOCTYPE html>

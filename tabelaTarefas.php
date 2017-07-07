@@ -1,5 +1,5 @@
 <?php 
-$tarefas = buscar_tarefas($conexao);
+$tarefas = listar_tarefas($conexao);
 if ($tarefas) { ?>
 	<table border=1>
 		<tr>
